@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Css Variables</title>
+
+    <style>
+        /* creating css variables */
+        :root {
+            --base: yellow;
+            --spacing: 50px;
+            --blur: 0px;
+            --height: 300px;
+            --width: 400px;
+        }
+
+        body{
+            text-align: center;
+            background-color: rgb(8, 66, 110);
+            color: white;
+            font-size: 24px;
+            font-family: "bradley hand itc";
+        }
+        h1{
+            font-size: 48px;
+            margin: 20px 0;
+        }
+        .js{
+            color: rgb(225, 241, 52);
+        }
+        .controls{
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            margin: 50px 0;
+        }
+        img{
+            background: var(--base);
+            width: var(--width);
+            height: var(--height);
+            padding: var(--spacing);
+            filter: blur(var(--blur));
+        }
+
+        @media screen and (max-width:900px) {
+            .controls{
+                flex-direction: column;
+                align-items: center;
+            }
+            input{
+                max-width: 250px;
+            }
+        }
+
+    </style>
+</head>
+<body>
+    <h1>Update CSS Variables with <span class="js">JS</span></h1>
+    <div class="controls">
+        <label for="spacing">Spacing:</label>
+        <input type="range" name="spacing" min="10" max="200" data-sizing="px">
+
+        <label for="blur">Blur:</label>
+        <input type="range" name="blur" min="0" max="30" data-sizing="px">
+
+        <label for="base">Base Color:</label>
+        <input type="color" name="base"  data-sizing="">
+
+        <label for="height">Height:</label>
+        <input type="range" name="height" min="200" max="800" data-sizing="px">
+
+        <label for="width">Width: </label>
+        <input type="range" name="width" min="200" max="1000" data-sizing="px">
+    </div>
+    <img src="./background.jpg" alt="city image">
+
+    <script>
+        const inputs = document.querySelectorAll(".controls > input");
+        function handleChange(){
+            // this.datset == dataset is a object that contains all the data-attributes of an element.
+            const suffix = this.dataset.sizing;
+            console.log(this.name);
+            //to select the css variable select the ":root" using
+            // document.documentElement
+            document.documentElement.style.setProperty(`--${this.name}`,this.value + suffix);
+        }
+        inputs.forEach(eve => eve.addEventListener("change",handleChange));
+        inputs.forEach(eve => eve.addEventListener("mousemove",handleChange));
+
+        
+
+    </script>
+</body>
+</html>
