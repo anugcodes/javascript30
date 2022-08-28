@@ -16,6 +16,7 @@
             font-size: 18px;
         }
     </style>
+    <link rel="icon" type="image/png" href="./anugcodes_logo.png">
 </head>
 <body>
     <h1>Please look at the console.</h1><br>
@@ -102,15 +103,19 @@
             console.log("[6] - adding an extra column to array as years lived.")
             console.table(inventors);
              
+            /* this codes works on the "Boulevards in paris page in wikipedia."
+
             //7. create a list of Borlevards in paris that contain 'de' anywhere in the name.
-            // https;//en.wilipedia.org/wiki/Category:Boulevards_in_Paris
-            // const category = document.querySelector(".mw-categoty");
-            // //  as this line will return a nodeList so we need to convert it into a array by using Array.from();
-            // const links = Array.from(category.querySelectorAll("a"));
-            // // now create a string array from array of links object by map()
-            // let de = links.map(link => link.textContent);
-            // de = de.filter(d => d.includes("de"));
-            // de.forEach(d => console.log(d));
+            //https;//en.wilipedia.org/wiki/Category:Boulevards_in_Paris
+            const category = document.querySelector(".mw-categoty");
+            //as this line will return a nodeList so we need to convert it into a array by using Array.from();
+            const links = Array.from(category.querySelectorAll("a"));
+            // now create a string array from array of links object by map()
+            let de = links.map(link => link.textContent);
+            de = de.filter(d => d.includes("de"));
+            de.forEach(d => console.log(d));
+            */
+           console.log("[7] - works on https://en.wikipedia.org/wiki/Category:Boulevards_in_Paris ");
 
             //8. Sort exercise
             // sort the people alphabetically by last name
@@ -122,6 +127,7 @@
                 return (aLast > bLast)? 1: -1;
 
             });
+            console.log("[8] -sort the people alphabetically by last name" )
             console.log(alpha);
 
             //9. Reduce Exercise
@@ -136,7 +142,7 @@
                 rValue[iValue]++;
                 return rValue;
             },{})
-    
+            console.log("[9] - Sum up the instances of each of these.")
             console.log(hmap);
 
 
